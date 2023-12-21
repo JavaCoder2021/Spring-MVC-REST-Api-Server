@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
-@ComponentScan("by.trofimov.spring.rest")
+@ComponentScan("by.trofimov.spring.rest_server")
 @EnableWebMvc
 @EnableTransactionManagement
 public class MyConfig {
