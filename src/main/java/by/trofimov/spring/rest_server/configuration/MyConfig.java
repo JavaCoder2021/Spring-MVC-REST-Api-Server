@@ -36,7 +36,7 @@ public class MyConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan("by.trofimov.spring.rest.entity");
+        sessionFactory.setPackagesToScan("by.trofimov.spring.rest_server.entity");
         Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty("hibernate.dialect",
                 "org.hibernate.dialect.MySQLDialect");
