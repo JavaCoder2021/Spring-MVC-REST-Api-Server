@@ -11,9 +11,10 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import static by.trofimov.spring.rest_server.util.Constant.*;
 
 @Configuration
-@ComponentScan("by.trofimov.spring.rest_server")
+@ComponentScan(MY_CONFIG_PACKAGES_TO_SCAN)
 @EnableWebMvc
 @EnableTransactionManagement
 public class MyConfig {
@@ -22,10 +23,10 @@ public class MyConfig {
     public DataSource dataSource() {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
         try {
-            dataSource.setDriverClass("com.mysql.cj.jdbc.Driver");
-            dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/my_db?useSSL=false&amp");
-            dataSource.setUser("bestuser");
-            dataSource.setPassword("bestuser");
+            dataSource.setDriverClass(DB_DRIVER_CLASS);
+            dataSource.setJdbcUrl(DB_JDBC_URL);
+            dataSource.setUser(DB_USER);
+            dataSource.setPassword(DB_PASSWORD);
         } catch (PropertyVetoException e) {
             throw new RuntimeException(e);
         }
@@ -36,11 +37,10 @@ public class MyConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan("by.trofimov.spring.rest_server.entity");
+        sessionFactory.setPackagesToScan(SESSION_FACTORY_PACKAGES_TO_SCAN);
         Properties hibernateProperties = new Properties();
-        hibernateProperties.setProperty("hibernate.dialect",
-                "org.hibernate.dialect.MySQLDialect");
-        hibernateProperties.setProperty("hibernate.show_sql", "true");
+        hibernateProperties.setProperty(SESSION_FACTORY_HIBERNATE_DIALECT, SESSION_FACTORY_MYSQL_DIALECT);
+        hibernateProperties.setProperty(SESSION_FACTORY_SHOW_SQL, SESSION_FACTORY_TRUE);
         sessionFactory.setHibernateProperties(hibernateProperties);
         return sessionFactory;
     }
