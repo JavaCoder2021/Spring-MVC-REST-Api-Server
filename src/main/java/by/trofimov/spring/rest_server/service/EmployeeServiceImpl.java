@@ -8,7 +8,7 @@ import by.trofimov.spring.rest_server.entity.Employee;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class EmloyeeServiceImpl implements EmloyeeService {
+public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     private EmployeeDAO employeeDAO;

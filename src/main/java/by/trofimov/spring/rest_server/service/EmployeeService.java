@@ -3,7 +3,7 @@ package by.trofimov.spring.rest_server.service;
 import java.util.List;
 import by.trofimov.spring.rest_server.entity.Employee;
 
-public interface EmloyeeService {
+public interface EmployeeService {
 
     List<Employee> getAllEmployees();
 

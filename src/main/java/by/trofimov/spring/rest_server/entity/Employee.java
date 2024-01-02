@@ -1,12 +1,9 @@
 package by.trofimov.spring.rest_server.entity;
 
-import javax.persistence.*;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 import java.io.Serial;
 import java.io.Serializable;
+import javax.persistence.*;
 import java.util.Objects;
-import static by.trofimov.spring.rest_server.util.Constant.*;
 
 @Entity
 @Table(name = "employees")
@@ -19,15 +16,12 @@ public class Employee implements Serializable {
     @Column(name = "id")
     private int id;
     @Column(name = "name")
-    @NotBlank(message = NAME_IS_REQUIRED_FIELD)
     private String name;
     @Column(name = "surname")
-    @NotBlank(message = SURNAME_IS_REQUIRED_FIELD)
     private String surname;
     @Column(name = "department")
     private String department;
     @Column(name = "salary")
-    @Min(value = 1, message = MUST_GREATER_THEN_0)
     private int salary;
 
     public Employee() {
