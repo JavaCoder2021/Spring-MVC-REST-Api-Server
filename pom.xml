@@ -4,7 +4,7 @@
   <groupId>by.trofimov.spring</groupId>
   <artifactId>spring_mvc_rest_server</artifactId>
   <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <name>spring_mvc_rest_server Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
